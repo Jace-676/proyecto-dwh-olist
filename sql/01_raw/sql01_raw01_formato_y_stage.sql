@@ -1,0 +1,23 @@
+USE ROLE SYSADMIN;
+USE WAREHOUSE WH_CARGA;
+USE DATABASE DWH_OLIST;
+
+-- Formato CSV de Olist (entrecomillado opcional porque las resenas traen comas y saltos de linea)
+CREATE OR REPLACE FILE FORMAT RAW.FF_CSV_OLIST
+  TYPE = CSV
+  SKIP_HEADER = 1
+  FIELD_DELIMITER = ','
+  FIELD_OPTIONALLY_ENCLOSED_BY = '"'
+  NULL_IF = ('', 'NULL')
+  EMPTY_FIELD_AS_NULL = TRUE
+  ENCODING = 'UTF8'
+  COMPRESSION = AUTO;
+
+-- Stage interno. IF NOT EXISTS (no OR REPLACE) para no borrar los archivos si se re-ejecuta.
+CREATE STAGE IF NOT EXISTS RAW.STG_OLIST
+  FILE_FORMAT = RAW.FF_CSV_OLIST
+  DIRECTORY = (ENABLE = TRUE)
+  ENCRYPTION = (TYPE = 'SNOWFLAKE_SSE')
+  COMMENT = 'Aterrizaje de los CSV de Olist';
+
+SHOW STAGES IN SCHEMA RAW;
