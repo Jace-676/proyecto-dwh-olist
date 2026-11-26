@@ -1,1 +1,14 @@
+# Datos pesados (no se suben a Git)
+data/olist/*.csv
+data/iot/*.json
+data/iot/*.json.gz
 
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Credenciales (nunca subir)
+*.env
+config.toml
+connections.toml
