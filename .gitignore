@@ -12,3 +12,6 @@ __pycache__/
 *.env
 config.toml
 connections.toml
+
+!data/iot/manifiesto.json
+!data/iot/ejemplo_telemetria.json

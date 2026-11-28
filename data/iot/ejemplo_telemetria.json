@@ -1,0 +1,72 @@
+[
+  {
+    "device_id": "VH-036",
+    "ts": "2016-10-10T12:52:05Z",
+    "gps": {
+      "lat": -22.93584,
+      "lon": -53.11521
+    },
+    "temp_c": 23.0,
+    "speed_kmh": 0.0,
+    "perfil_termico": "AMBIENTE",
+    "order_ids": [
+      "7033745709b7cf1bac7d2533663592de"
+    ]
+  },
+  {
+    "device_id": "VH-036",
+    "ts": "2016-10-10T12:57:05Z",
+    "gps": {
+      "lat": -22.93314,
+      "lon": -53.13866
+    },
+    "temp_c": 23.2,
+    "speed_kmh": 0.0,
+    "perfil_termico": "AMBIENTE",
+    "order_ids": [
+      "7033745709b7cf1bac7d2533663592de"
+    ]
+  },
+  {
+    "device_id": "VH-036",
+    "ts": "2016-10-10T13:02:05Z",
+    "gps": {
+      "lat": -22.93777,
+      "lon": -53.13446
+    },
+    "temp_c": 22.7,
+    "speed_kmh": 0.0,
+    "perfil_termico": "AMBIENTE",
+    "order_ids": [
+      "7033745709b7cf1bac7d2533663592de"
+    ]
+  },
+  {
+    "device_id": "VH-036",
+    "ts": "2016-10-10T13:07:05Z",
+    "gps": {
+      "lat": -22.93994,
+      "lon": -53.1334
+    },
+    "temp_c": 21.9,
+    "speed_kmh": 0.0,
+    "perfil_termico": "AMBIENTE",
+    "order_ids": [
+      "7033745709b7cf1bac7d2533663592de"
+    ]
+  },
+  {
+    "device_id": "VH-036",
+    "ts": "2016-10-10T13:12:05Z",
+    "gps": {
+      "lat": -22.93436,
+      "lon": -53.11301
+    },
+    "temp_c": 25.1,
+    "speed_kmh": 0.0,
+    "perfil_termico": "AMBIENTE",
+    "order_ids": [
+      "7033745709b7cf1bac7d2533663592de"
+    ]
+  }
+]

@@ -1,0 +1,130 @@
+{
+  "parametros": {
+    "olist_dir": "data/olist",
+    "salida": "data/iot",
+    "semilla": 42,
+    "pedidos": 20000,
+    "intervalo_min": 5.0,
+    "ventana_max_h": 96.0,
+    "prop_incidentes": 0.15,
+    "prop_sucios": 0.002,
+    "dispositivos": 60,
+    "lecturas_por_archivo": 250000,
+    "num_lotes": 3,
+    "lote_inicial": 2,
+    "prefijo": "telemetria"
+  },
+  "versiones": {
+    "python": "3.14.5",
+    "numpy": "2.5.5",
+    "pandas": "3.1.1"
+  },
+  "pedidos_simulados": 20000,
+  "pedidos_omitidos": 0,
+  "dispositivos_usados": 96,
+  "lecturas_totales": 3601730,
+  "incidentes_por_tipo": {
+    "TEMP": 1639,
+    "DESVIO": 608,
+    "PARADA": 765
+  },
+  "registros_sucios_inyectados": {
+    "fuera_brasil": 1819,
+    "temp_imposible": 1845,
+    "vel_atipica": 1731,
+    "duplicada": 1778
+  },
+  "archivos": [
+    {
+      "archivo": "telemetria_L002_0001.json.gz",
+      "lote": "L002",
+      "lecturas": 250000,
+      "sha256_contenido": "2e51d85e961aca644643608b0ae787ad07004cbd948ade79425964ff19673062"
+    },
+    {
+      "archivo": "telemetria_L002_0002.json.gz",
+      "lote": "L002",
+      "lecturas": 250000,
+      "sha256_contenido": "5f124578aa85bbbe1826e3a65ea9a0ae437ab16e3353f43d7375f5432e297101"
+    },
+    {
+      "archivo": "telemetria_L002_0003.json.gz",
+      "lote": "L002",
+      "lecturas": 250000,
+      "sha256_contenido": "0c8673af732d77bc647393514b1b5455d458934c8c281f2395288f0e7820d1c5"
+    },
+    {
+      "archivo": "telemetria_L002_0004.json.gz",
+      "lote": "L002",
+      "lecturas": 250000,
+      "sha256_contenido": "b29c302a1a7155c558261815588436dc8345e8f0b04c5e9a39cae75721b2db2d"
+    },
+    {
+      "archivo": "telemetria_L002_0005.json.gz",
+      "lote": "L002",
+      "lecturas": 250000,
+      "sha256_contenido": "f98a998b1b942c7b104999b068689d0591093a175fc107d5816ea5f33d3e7ad3"
+    },
+    {
+      "archivo": "telemetria_L003_0006.json.gz",
+      "lote": "L003",
+      "lecturas": 250000,
+      "sha256_contenido": "5f76a5b3a95bf291e8b64cb5798666046c8f3fa96dafc37a54efff928d78d087"
+    },
+    {
+      "archivo": "telemetria_L003_0007.json.gz",
+      "lote": "L003",
+      "lecturas": 250000,
+      "sha256_contenido": "890ea9a5bd47f900ae1c423d9677d304387e5bc47e8eeb1a6ab48e67ed253815"
+    },
+    {
+      "archivo": "telemetria_L003_0008.json.gz",
+      "lote": "L003",
+      "lecturas": 250000,
+      "sha256_contenido": "78fe3683dc22834d5aac1bdd61a1ead7e8283992213560e7a37880204b6037ae"
+    },
+    {
+      "archivo": "telemetria_L003_0009.json.gz",
+      "lote": "L003",
+      "lecturas": 250000,
+      "sha256_contenido": "18712a0b94efd4e1d00dd1d49451c56476c5ac7a6b1c3ff5d9a41f4e39b277e6"
+    },
+    {
+      "archivo": "telemetria_L003_0010.json.gz",
+      "lote": "L003",
+      "lecturas": 250000,
+      "sha256_contenido": "aad195422b6d08efbe0ecbdb465a7f12ef2b996f76167033b4b2dd6494a59cce"
+    },
+    {
+      "archivo": "telemetria_L004_0011.json.gz",
+      "lote": "L004",
+      "lecturas": 250000,
+      "sha256_contenido": "17c68417f05937329e12ba4af911ae30d52aeff664558a644c8f59c2441208a3"
+    },
+    {
+      "archivo": "telemetria_L004_0012.json.gz",
+      "lote": "L004",
+      "lecturas": 250000,
+      "sha256_contenido": "ed1fcca8f246a7fa89d3eafb6eced766d24de986a2f2a8f88dfc933c4fb13d51"
+    },
+    {
+      "archivo": "telemetria_L004_0013.json.gz",
+      "lote": "L004",
+      "lecturas": 250000,
+      "sha256_contenido": "1b60949a6493a7de17a18d2d18d6ce799168fc2a5ccb12b007e87bcb7fcb62aa"
+    },
+    {
+      "archivo": "telemetria_L004_0014.json.gz",
+      "lote": "L004",
+      "lecturas": 250000,
+      "sha256_contenido": "dddc2706f9a400b679f5c3ff1ab058d53eb2761950314865b0fd6598aaf3a9c6"
+    },
+    {
+      "archivo": "telemetria_L004_0015.json.gz",
+      "lote": "L004",
+      "lecturas": 101730,
+      "sha256_contenido": "d21a02f0fe277bbb58f804a83a73b62d22f6c22851e2bbb083c59f6d9a8786ad"
+    }
+  ],
+  "sha256_global": "98f7a2e07264476625d04e926cdd7f39a0b2562ad7d48f48387b8c1e23ed20bd"
+}
