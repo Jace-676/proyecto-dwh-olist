@@ -1,0 +1,30 @@
+USE ROLE SYSADMIN;
+USE WAREHOUSE WH_CARGA;
+USE DATABASE DWH_OLIST;
+
+-- Un JSON por linea (NDJSON); cada linea se convierte en una fila
+CREATE OR REPLACE FILE FORMAT RAW.FF_JSON_IOT
+  TYPE = JSON
+  STRIP_OUTER_ARRAY = FALSE
+  COMPRESSION = AUTO;
+
+CREATE STAGE IF NOT EXISTS RAW.STG_IOT
+  FILE_FORMAT = RAW.FF_JSON_IOT
+  DIRECTORY = (ENABLE = TRUE)
+  COMMENT = 'Aterrizaje de la telemetria IoT (micro-lotes)';
+
+-- IF NOT EXISTS: esta tabla acumula datos, no se debe reemplazar
+CREATE TABLE IF NOT EXISTS RAW.TELEMETRIA_IOT (
+  payload        VARIANT,
+  _archivo       STRING,
+  _fila          NUMBER,
+  _lote          STRING,
+  _fecha_ingesta TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+);
+
+-- Stream ANTES de cargar datos. APPEND_ONLY porque RAW solo recibe inserciones.
+CREATE STREAM IF NOT EXISTS RAW.STM_TELEMETRIA_IOT
+  ON TABLE RAW.TELEMETRIA_IOT
+  APPEND_ONLY = TRUE;
+
+SHOW STREAMS IN SCHEMA RAW;

@@ -1,0 +1,120 @@
+Table dim_fecha {
+  fecha_key int [pk]
+  fecha date
+  anio int
+  trimestre int
+  mes int
+  dia_semana int
+}
+Table dim_geografia {
+  geografia_key int [pk]
+  zip_prefix varchar [unique]
+  ciudad varchar
+  estado varchar
+  latitud float
+  longitud float
+}
+Table dim_cliente {
+  cliente_key int [pk]
+  customer_id varchar [unique]
+  customer_unique_id varchar
+  geografia_key int
+}
+Table dim_vendedor {
+  vendedor_key int [pk]
+  seller_id varchar [unique]
+  geografia_key int
+}
+Table dim_categoria {
+  categoria_key int [pk]
+  categoria_pt varchar [unique]
+  categoria_en varchar
+}
+Table dim_producto {
+  producto_key int [pk]
+  product_id varchar [unique]
+  categoria_key int
+  peso_g int
+}
+Table fact_item_pedido {
+  pedido_id varchar [pk]
+  item_numero int [pk]
+  producto_key int
+  vendedor_key int
+  cliente_key int
+  fecha_compra_key int
+  precio decimal
+  flete decimal
+  dias_retraso int
+  entregado_a_tiempo boolean
+}
+Table fact_pago {
+  pedido_id varchar [pk]
+  pago_secuencia int [pk]
+  cliente_key int
+  fecha_compra_key int
+  tipo_pago varchar
+  monto decimal
+}
+Table fact_resena {
+  review_id varchar [pk]
+  pedido_id varchar [pk]
+  cliente_key int
+  fecha_creacion_key int
+  calificacion int
+}
+
+Table dim_dispositivo_iot {
+  dispositivo_key int [pk]
+  device_id varchar [unique]
+  tipo_sensor varchar
+  primera_lectura_ts timestamp
+  ultima_lectura_ts timestamp
+}
+Table dim_clasificacion_iot {
+  clasificacion_key int [pk]
+  dimension varchar
+  perfil varchar
+  clase varchar
+  temp_min float
+  temp_max float
+}
+Table fact_telemetria_iot {
+  dispositivo_key int [pk]
+  lectura_ts timestamp [pk]
+  fecha_key int
+  latitud float
+  longitud float
+  temperatura_c float
+  velocidad_kmh float
+  desvio_km float
+  clasif_termica_key int
+  clasif_movimiento_key int
+  clasif_calidad_key int
+}
+Table puente_entrega_dispositivo {
+  pedido_id varchar [pk]
+  dispositivo_key int [pk]
+  inicio_ts timestamp
+  fin_ts timestamp
+  n_lecturas int
+}
+
+Ref: dim_cliente.geografia_key > dim_geografia.geografia_key
+Ref: dim_vendedor.geografia_key > dim_geografia.geografia_key
+Ref: dim_producto.categoria_key > dim_categoria.categoria_key
+Ref: fact_item_pedido.producto_key > dim_producto.producto_key
+Ref: fact_item_pedido.vendedor_key > dim_vendedor.vendedor_key
+Ref: fact_item_pedido.cliente_key > dim_cliente.cliente_key
+Ref: fact_item_pedido.fecha_compra_key > dim_fecha.fecha_key
+Ref: fact_pago.cliente_key > dim_cliente.cliente_key
+Ref: fact_pago.fecha_compra_key > dim_fecha.fecha_key
+Ref: fact_resena.cliente_key > dim_cliente.cliente_key
+Ref: fact_resena.fecha_creacion_key > dim_fecha.fecha_key
+Ref: fact_telemetria_iot.dispositivo_key > dim_dispositivo_iot.dispositivo_key
+Ref: fact_telemetria_iot.fecha_key > dim_fecha.fecha_key
+Ref: fact_telemetria_iot.clasif_termica_key > dim_clasificacion_iot.clasificacion_key
+Ref: fact_telemetria_iot.clasif_movimiento_key > dim_clasificacion_iot.clasificacion_key
+Ref: fact_telemetria_iot.clasif_calidad_key > dim_clasificacion_iot.clasificacion_key
+Ref: puente_entrega_dispositivo.dispositivo_key > dim_dispositivo_iot.dispositivo_key
+Ref: puente_entrega_dispositivo.pedido_id > fact_item_pedido.pedido_id
